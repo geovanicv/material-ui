@@ -11,7 +11,7 @@ export type FormValues = {
   city: string
   gender: GenderTypes
   departmentId: string
-  hireDate: Date
+  hireDate: Date | null
   isPermanent: boolean
 }
 
@@ -40,12 +40,20 @@ export function useForm(initialValues: FormValues) {
     })
   }
 
+  const onChangeDatePicker = (date: Date | null) => {
+    setValues({
+      ...values,
+      hireDate: date
+    })
+  }
+
   return {
     values,
     setValues,
     onChange,
     onChangeSelect,
-    onChangeCheckbox
+    onChangeCheckbox,
+    onChangeDatePicker
   }
 }
 

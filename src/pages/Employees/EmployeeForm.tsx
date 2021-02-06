@@ -4,6 +4,7 @@ import Form, { FormValues, useForm } from '../../components/Form'
 import RadioGroup, {GenderItems} from '../../components/controls/RadioGroup'
 import Select from '../../components/controls/Select'
 import Checkbox from '../../components/controls/Checkbox'
+import DatePicker from '../../components/controls/DatePicker'
 
 
 const initialValues: FormValues = {
@@ -33,7 +34,14 @@ const departments = [
 
 const EmployeeForm = () => {
   
- const {onChange, onChangeSelect, onChangeCheckbox, setValues, values} = useForm(initialValues)
+ const {
+   onChange, 
+   onChangeSelect, 
+   onChangeCheckbox, 
+   onChangeDatePicker, 
+   setValues, 
+   values
+  } = useForm(initialValues)
  
   return (
     <Form>
@@ -67,6 +75,12 @@ const EmployeeForm = () => {
             onChange={onChangeSelect}
             options={departments}
             />
+          <DatePicker
+            label="Hire Date"
+            name="hireDate"
+            value={values.hireDate}
+            onChange={onChangeDatePicker}
+          />
           <Checkbox 
             label="Permanent Employee" 
             name="isPermanent"
