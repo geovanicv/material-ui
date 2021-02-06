@@ -1,4 +1,5 @@
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import pt from 'date-fns/locale/pt-BR'
 import DateFnsUtils from '@date-io/date-fns';
 
 type DatePickerProps = {
@@ -10,12 +11,12 @@ type DatePickerProps = {
 
 const DatePicker = ({label, name, value, onChange}: DatePickerProps) => {
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={pt}>
       <KeyboardDatePicker disableToolbar variant="inline" inputVariant="outlined"      
         label={label}
         value={value}
         name={name}
-        format="MM/dd/yyyy"
+        format="dd/MM/yyyy"
         onChange={onChange}
       />    
     </MuiPickersUtilsProvider>
