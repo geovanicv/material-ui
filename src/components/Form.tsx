@@ -26,10 +26,18 @@ export function useForm(initialValues: FormValues) {
     })
   }
 
+  const onChangeSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setValues({
+      ...values,
+      departmentId: event.target.value as string
+    })
+  }
+
   return {
     values,
     setValues,
-    onChange
+    onChange,
+    onChangeSelect
   }
 }
 

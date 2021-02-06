@@ -2,6 +2,7 @@ import { Grid } from '@material-ui/core'
 import Input from '../../components/controls/Input'
 import Form, { FormValues, useForm } from '../../components/Form'
 import RadioGroup, {GenderItems} from '../../components/controls/RadioGroup'
+import Select from '../../components/controls/Select'
 
 
 const initialValues: FormValues = {
@@ -22,9 +23,16 @@ const genderItems: GenderItems = [
   {id: 'other', title: 'Other'},
 ]
 
+const departments = [
+  {id: '1', title: 'Development'},
+  {id: '2', title: 'Marketing'},
+  {id: '3', title: 'Accounting'},
+  {id: '4', title: 'RH'},
+]
+
 const EmployeeForm = () => {
   
- const {onChange, setValues, values} = useForm(initialValues)
+ const {onChange, onChangeSelect, setValues, values} = useForm(initialValues)
  
   return (
     <Form>
@@ -51,6 +59,14 @@ const EmployeeForm = () => {
             items={genderItems}
             onChange={onChange}
           />
+          <Select 
+            label="Department"
+            name="departmentId"
+            value={values.departmentId}
+            
+            onChange={onChangeSelect}
+            options={departments}
+            />
         </Grid>
       </Grid>
     </Form>
