@@ -5,6 +5,7 @@ import RadioGroup, {GenderItems} from '../../components/controls/RadioGroup'
 import Select from '../../components/controls/Select'
 import Checkbox from '../../components/controls/Checkbox'
 import DatePicker from '../../components/controls/DatePicker'
+import Button from '../../components/controls/Button'
 
 
 const initialValues: FormValues = {
@@ -59,6 +60,18 @@ const EmployeeForm = () => {
             value={values.email}
             onChange={onChange}
           />
+           <Input 
+            label="Mobile" 
+            name="mobile"
+            value={values.mobile}
+            onChange={onChange}
+          />
+           <Input 
+            label="City" 
+            name="city"
+            value={values.city}
+            onChange={onChange}
+          />
         </Grid>
         <Grid item xs={6}>
           <RadioGroup
@@ -87,6 +100,12 @@ const EmployeeForm = () => {
             value={values.isPermanent}
             onChange={onChangeCheckbox}
           />
+
+          <div>
+            <Button text="Submit" type="submit" />
+            <Button text="Reset" type="reset" color="secondary" />
+          </div>
+
         </Grid>
       </Grid>
     </Form>
