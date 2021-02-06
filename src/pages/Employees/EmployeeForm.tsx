@@ -3,6 +3,7 @@ import Input from '../../components/controls/Input'
 import Form, { FormValues, useForm } from '../../components/Form'
 import RadioGroup, {GenderItems} from '../../components/controls/RadioGroup'
 import Select from '../../components/controls/Select'
+import Checkbox from '../../components/controls/Checkbox'
 
 
 const initialValues: FormValues = {
@@ -32,7 +33,7 @@ const departments = [
 
 const EmployeeForm = () => {
   
- const {onChange, onChangeSelect, setValues, values} = useForm(initialValues)
+ const {onChange, onChangeSelect, onChangeCheckbox, setValues, values} = useForm(initialValues)
  
   return (
     <Form>
@@ -63,10 +64,15 @@ const EmployeeForm = () => {
             label="Department"
             name="departmentId"
             value={values.departmentId}
-            
             onChange={onChangeSelect}
             options={departments}
             />
+          <Checkbox 
+            label="Permanent Employee" 
+            name="isPermanent"
+            value={values.isPermanent}
+            onChange={onChangeCheckbox}
+          />
         </Grid>
       </Grid>
     </Form>

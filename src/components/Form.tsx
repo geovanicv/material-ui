@@ -33,11 +33,19 @@ export function useForm(initialValues: FormValues) {
     })
   }
 
+  const onChangeCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.checked
+    })
+  }
+
   return {
     values,
     setValues,
     onChange,
-    onChangeSelect
+    onChangeSelect,
+    onChangeCheckbox
   }
 }
 
