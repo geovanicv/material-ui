@@ -1,6 +1,7 @@
-import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Input from '../../components/controls/Input'
 import Form, { FormValues, useForm } from '../../components/Form'
+import RadioGroup, {GenderItems} from '../../components/controls/RadioGroup'
 
 
 const initialValues: FormValues = {
@@ -14,6 +15,12 @@ const initialValues: FormValues = {
   hireDate: new Date(),
   isPermanent: false
 }
+
+const genderItems: GenderItems = [
+  {id: 'male', title: 'Male'},
+  {id: 'female', title: 'Female'},
+  {id: 'other', title: 'Other'},
+]
 
 const EmployeeForm = () => {
   
@@ -37,17 +44,13 @@ const EmployeeForm = () => {
           />
         </Grid>
         <Grid item xs={6}>
-          <FormControl>
-            <FormLabel>Gender</FormLabel>
-            <RadioGroup row
+          <RadioGroup
+            label="Gender"
             name="gender"
             value={values.gender}
-            onChange={onChange}>
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
-              <FormControlLabel value="female" control={<Radio />} label="Female" />
-              <FormControlLabel value="other" control={<Radio />} label="Other" />
-            </RadioGroup>
-          </FormControl>
+            items={genderItems}
+            onChange={onChange}
+          />
         </Grid>
       </Grid>
     </Form>

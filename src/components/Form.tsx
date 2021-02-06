@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react'
 import { makeStyles } from '@material-ui/core'
 
-type Gender = 'male' | 'female' | 'other'
+export type GenderTypes = 'male' | 'female' | 'other'
 
 export type FormValues = {
   id: number
@@ -9,7 +9,7 @@ export type FormValues = {
   email: string
   mobile: string
   city: string
-  gender: Gender
+  gender: GenderTypes
   departmentId: string
   hireDate: Date
   isPermanent: boolean
@@ -50,7 +50,7 @@ const Form = ({children}: FormProps) => {
   const classes = useStyles()
 
   return (
-    <form className={classes.root}>
+    <form className={classes.root} autoComplete="off">
       {children}
     </form>
   )
